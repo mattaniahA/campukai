@@ -1,26 +1,163 @@
 @import "tailwindcss";
 
+/* ----------------------------------------------------------------------------
+   Camp U-Kai — grainy green-gradient direction
+   Soft wild-green wash fading to bone, black type, mono + bold grotesque.
+   (After the FORRA / "Growth" / Pokémon poster references.)
+---------------------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bone: #e9e7d6;
+  --bone-soft: #eef0e0;
+  --bone-deep: #dcdcc4;
+
+  --moss: #7d9b52;
+  --moss-deep: #4a6029;
+  --fern: #9cbf5e;
+  --lime: #c6d15c;
+  --lime-deep: #97a52e;
+  --sky: #a9c6d8;
+  --sky-deep: #5b7f94;
+
+  --ink: #14160f;
+  --ink-soft: #45493a;
+  --ink-faint: #7b7f68;
+
+  /* Back-compat aliases so existing utilities keep working, retinted green. */
+  --paper: var(--bone);
+  --paper-soft: var(--bone-soft);
+  --paper-deep: var(--bone-deep);
+  --olive: var(--moss);
+  --olive-deep: var(--moss-deep);
+  --slate: var(--sky);
+  --slate-deep: var(--sky-deep);
+  --ochre: var(--lime);
+  --ochre-deep: var(--lime-deep);
+  --petal: var(--fern);
+  --petal-deep: var(--moss-deep);
+  --haze: var(--fern);
+  --haze-deep: var(--moss-deep);
+  --meadow: var(--bone);
+  --rust: #8a7a3a;
+  --rust-deep: #5f5a2c;
+  --lichen: #b7bd9f;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bone: var(--bone);
+  --color-bone-soft: var(--bone-soft);
+  --color-bone-deep: var(--bone-deep);
+  --color-moss: var(--moss);
+  --color-moss-deep: var(--moss-deep);
+  --color-fern: var(--fern);
+  --color-lime: var(--lime);
+  --color-lime-deep: var(--lime-deep);
+  --color-sky: var(--sky);
+  --color-sky-deep: var(--sky-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+
+  --color-paper: var(--paper);
+  --color-paper-soft: var(--paper-soft);
+  --color-paper-deep: var(--paper-deep);
+  --color-olive: var(--olive);
+  --color-olive-deep: var(--olive-deep);
+  --color-slate: var(--slate);
+  --color-slate-deep: var(--slate-deep);
+  --color-ochre: var(--ochre);
+  --color-ochre-deep: var(--ochre-deep);
+  --color-petal: var(--petal);
+  --color-petal-deep: var(--petal-deep);
+  --color-haze: var(--haze);
+  --color-haze-deep: var(--haze-deep);
+  --color-meadow: var(--meadow);
+  --color-rust: var(--rust);
+  --color-rust-deep: var(--rust-deep);
+  --color-lichen: var(--lichen);
+
+  --font-display: var(--font-space-grotesk);
+  --font-mono: var(--font-space-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  font-family: var(--font-space-mono), ui-monospace, monospace;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-color: var(--fern);
+  background-image:
+    radial-gradient(65% 55% at 78% 12%, rgba(74, 96, 41, 0.85), transparent 68%),
+    radial-gradient(60% 60% at 16% 82%, rgba(233, 231, 214, 0.96), transparent 66%),
+    radial-gradient(55% 45% at 58% 52%, rgba(169, 198, 216, 0.4), transparent 70%),
+    radial-gradient(80% 70% at 92% 96%, rgba(74, 96, 41, 0.55), transparent 72%),
+    linear-gradient(158deg, var(--moss) 0%, var(--fern) 42%, var(--bone) 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Heavier film grain for that sprayed / risograph poster feel */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.2;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- Editorial helpers ---- */
+.label {
+  font-family: var(--font-space-mono), monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+}
+
+.rule {
+  border-color: color-mix(in srgb, var(--ink) 22%, transparent);
+}
+
+.display {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Translucent bone panel so text stays readable over the wash */
+.panel {
+  background: color-mix(in srgb, var(--bone) 62%, transparent);
+  backdrop-filter: blur(4px);
+}
+
+.plate {
+  border: 1px solid color-mix(in srgb, var(--ink) 24%, transparent);
+  background: color-mix(in srgb, var(--bone) 55%, transparent);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 42s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
 }

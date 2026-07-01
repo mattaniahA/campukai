@@ -1,65 +1,123 @@
-import Image from "next/image";
+import Link from "next/link";
+import { site } from "@/lib/site";
+import Nav from "@/components/Nav";
+import Hero from "@/components/Hero";
+import Marquee from "@/components/Marquee";
+import Reveal from "@/components/Reveal";
+import Footer from "@/components/Footer";
+import { galleryItems } from "@/lib/gallery";
+import PlaceholderTile from "@/components/PlaceholderTile";
+import SectionHead from "@/components/SectionHead";
 
 export default function Home() {
+  const teaser = galleryItems.slice(0, 3);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+    <>
+      <Nav />
+      <main className="flex-1">
+        <Hero />
+        <Marquee />
+
+        {/* About */}
+        <section id="about" className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+          <Reveal>
+            <SectionHead index="01 / About" title="Come and play" />
+          </Reveal>
+          <div className="mt-12 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+            <Reveal>
+              <p className="display text-2xl font-medium leading-snug tracking-tight text-ink sm:text-3xl">
+                {site.about.lead}
+              </p>
+            </Reveal>
+            <Reveal delay={0.12}>
+              <p className="text-sm leading-relaxed text-ink-soft sm:text-base">
+                {site.about.body}
+              </p>
+            </Reveal>
+          </div>
+
+          <Reveal delay={0.1}>
+            <div className="mt-14 grid grid-cols-2 gap-px border-t rule sm:grid-cols-3">
+              {[
+                ["Dates", site.dates],
+                ["Where", site.location],
+                ["Format", site.format],
+              ].map(([k, v]) => (
+                <div key={k} className="border-l rule py-5 pl-5 first:border-l-0 first:pl-0">
+                  <div className="label mb-2">{k}</div>
+                  <div className="text-sm text-ink">{v}</div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </section>
+
+        {/* Gallery teaser */}
+        <section className="panel border-y rule py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8">
+            <Reveal>
+              <div className="flex flex-wrap items-baseline justify-between gap-4 border-b rule pb-4">
+                <div className="flex items-baseline gap-4">
+                  <span className="label pt-1">02 / Archive</span>
+                  <h2 className="display text-3xl font-medium tracking-tight text-ink sm:text-5xl">
+                    From last year
+                  </h2>
+                </div>
+                <Link
+                  href="/gallery"
+                  className="border-b border-ink/40 pb-0.5 text-xs uppercase tracking-[0.18em] text-ink transition-colors hover:border-ink"
+                >
+                  View gallery →
+                </Link>
+              </div>
+            </Reveal>
+
+            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {teaser.map((item, i) => (
+                <Reveal key={item.id} delay={i * 0.08}>
+                  <Link
+                    href="/gallery"
+                    className="group block border rule bg-bone/60 transition-colors hover:border-ink"
+                  >
+                    <div className="relative aspect-[4/3] w-full overflow-hidden">
+                      <PlaceholderTile item={item} index={i} />
+                    </div>
+                    <div className="flex items-center justify-between border-t rule px-3 py-2.5">
+                      <span className="text-xs text-ink">{item.caption}</span>
+                      <span className="label !text-[0.6rem]">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
+          <Reveal>
+            <span className="label">03 / Tickets</span>
+            <h2 className="display mt-4 max-w-3xl text-4xl font-medium leading-[0.95] tracking-tight text-ink sm:text-6xl">
+              Come to camp. Bring a tent, a friend, and something to share.
+            </h2>
+            <p className="mt-6 max-w-md text-sm text-ink-soft sm:text-base">
+              {site.dates} · {site.location}. Tickets are limited and tend to go
+              fast — grab yours and we&apos;ll send the details.
+            </p>
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href={site.ticketUrl}
+              className="group mt-9 inline-flex items-center gap-2 bg-ink px-7 py-3.5 text-sm uppercase tracking-[0.18em] text-paper transition-colors hover:bg-olive-deep"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+              Get tickets
+              <span className="transition-transform group-hover:translate-x-1">→</span>
+            </a>
+          </Reveal>
+        </section>
       </main>
-    </div>
+      <Footer />
+    </>
   );
 }

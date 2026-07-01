@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Camp U-Kai
 
-## Getting Started
+A custom site for the Camp U-Kai camp/festival at Lake Mendocino (Ukiah, CA) —
+replacing the old Notion page. Built with Next.js (App Router), Tailwind CSS v4,
+and Motion.
 
-First, run the development server:
+Design direction is **editorial / archival**: a muted earthen palette (bone
+paper, olive, dusty slate, ochre, oxblood, charcoal ink) on a grain texture,
+an editorial serif (Fraunces) paired with mono labels (Space Mono), numbered
+sections with hairline rules, and a generative backdrop of stippled organic
+"growth" spreading over a fine lattice plus scientific-plate particle scatters.
+Elevated but gritty — for an adult, artist/skater crowd.
+
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # http://localhost:3000
+npm run build    # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `/` — landing page: animated hero with drifting shapes, an activity ticker,
+  an about section, a gallery teaser, and a tickets CTA.
+- `/gallery` — masonry image gallery with a click-to-open lightbox
+  (arrow keys / Esc to navigate).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Editing content
 
-## Learn More
+Almost everything lives in two files:
 
-To learn more about Next.js, take a look at the following resources:
+- **`lib/site.ts`** — event name, dates, location, format, tagline, ticket URL,
+  the activity ticker, and the About copy (`about.lead` / `about.body`).
+- **`lib/gallery.ts`** — the gallery items. Drop photos into `public/gallery/`
+  and point each item's `src` at them; items without a `src` render a generated
+  particle-plate placeholder so the page is never empty. See
+  `public/gallery/README.md`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> Heads up: `ticketUrl` is still `"#"` — set it in `lib/site.ts` when the
+> ticket link is live.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Design system
 
-## Deploy on Vercel
+- Color tokens + grain texture + editorial helpers: `app/globals.css`
+- Generative art (seeded, deterministic): `lib/generative.ts`
+- Backdrop lattice / growth / scatter: `components/backdrop/` + `components/Backdrop.tsx`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All animations respect `prefers-reduced-motion`.
