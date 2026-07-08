@@ -29,16 +29,16 @@ export const tickets = {
       body: "Low cost ticket, covers basic cost of campsite & shared meals.",
       formUrl: "https://forms.gle/n78k6FebAMUVjeUy9",
     },
-    {
-      name: "Volunteer",
-      price: "$50",
-      body: "Work-trade option for assigned volunteers only. Spots are limited and not guaranteed.",
-      link: {
-        label: "Submit volunteer inquiry",
-        href: "https://docs.google.com/forms/d/e/1FAIpQLSfjShxkCCIb5RVyaPF2_LKwedD59HMvnrHcAKz00t70vOjTnQ/viewform?usp=sharing&ouid=100976631237999044087",
-      },
-      caveat: "This form is an inquiry, not a confirmation. Please register for a Supporter/Sustainer/Access ticket as well so your spot is secured! This helps us assign volunteers fairly. If you're selected as a volunteer, you'll be refunded the difference.",
-    },
+    // {
+    //   name: "Volunteer",
+    //   price: "$50",
+    //   body: "Work-trade option for assigned volunteers only. Spots are limited and not guaranteed.",
+    //   link: {
+    //     label: "Submit volunteer inquiry",
+    //     href: "https://docs.google.com/forms/d/e/1FAIpQLSfjShxkCCIb5RVyaPF2_LKwedD59HMvnrHcAKz00t70vOjTnQ/viewform?usp=sharing&ouid=100976631237999044087",
+    //   },
+    //   caveat: "This form is an inquiry, not a confirmation. Please register for a Supporter/Sustainer/Access ticket as well so your spot is secured! This helps us assign volunteers fairly. If you're selected as a volunteer, you'll be refunded the difference.",
+    // },
   ],
 
   mealsNote: "4 shared meals include 1 arrival meal, 2 basic breakfasts, 1 brunch.",

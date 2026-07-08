@@ -30,7 +30,7 @@ export default function Hero() {
       </motion.div>
 
       {/* poster frame — stamped corner text + stars */}
-      <motion.div
+    <motion.div
         {...rise(0.6)}
         className="label pointer-events-none absolute inset-x-0 bottom-5 z-10 flex items-center justify-between px-5 text-ink sm:px-8"
       >
