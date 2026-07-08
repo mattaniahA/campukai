@@ -36,43 +36,20 @@ export default function TicketsPage() {
           </Reveal>
         </section>
 
-        {/* Register CTA */}
-        <section className="mx-auto max-w-4xl px-5 pb-6 pt-2 sm:px-8">
-          <Reveal>
-            <a
-              href={tickets.googleFormUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-wash group block border border-ink px-6 py-8 sm:px-10 sm:py-10"
-            >
-              <span className=" flex items-baseline justify-between gap-4">
-                <span className="display text-3xl lowercase leading-[0.95] tracking-tight text-bone sm:text-5xl">
-                  register for camp here
-                </span>
-                <span
-                  aria-hidden
-                  className="display shrink-0 text-3xl leading-none text-bone transition-transform group-hover:translate-x-2 sm:text-5xl"
-                >
-                  →
-                </span>
-              </span>
-            </a>
-            <p className="label mt-4">
-              Payment details, the liability waiver, and everything else you need are in the form.
-            </p>
-          </Reveal>
-        </section>
-
         {/* Sliding scale tiers */}
         <section className="mx-auto max-w-4xl px-5 py-14 sm:px-8">
           <Reveal>
             <SectionHead index="01 / Tiers" title="Sliding scale" />
+            <p className="label mt-4">
+              Choose a tier and register in its form. Payment details, the liability
+              waiver, and everything else you need are in the form.
+            </p>
           </Reveal>
           <div className="mt-8 rule">
             {tickets.tiers.map((tier, i) => (
               <Reveal key={tier.name} delay={i * 0.06}>
                 <div className="flex flex-col gap-2 border-b rule py-6 sm:flex-row sm:items-baseline sm:gap-8">
-                  <div className="flex w-full items-baseline gap-3 sm:w-64 sm:shrink-0">
+                  <div className="flex w-full items-baseline gap-3 sm:w-56 sm:shrink-0">
                     <span className="display text-3xl tracking-tight text-ink tabular-nums">
                       {tier.price}
                     </span>
@@ -81,7 +58,7 @@ export default function TicketsPage() {
                       {tier.name}
                     </h3>
                   </div>
-                  <div className="text-sm leading-relaxed text-ink-soft sm:text-base">
+                  <div className="flex-1 text-sm leading-relaxed text-ink-soft sm:text-base">
                     <p>{tier.body}</p>
                     {"link" in tier && (
                       <p className="mt-2">
@@ -91,11 +68,36 @@ export default function TicketsPage() {
                           rel="noopener noreferrer"
                           className="border-b border-ink/40 pb-0.5 text-ink transition-colors hover:border-petal-deep hover:text-petal-deep"
                         >
-                          {tier.link.label} 
+                          {tier.link.label}
                         </a>
                       </p>
                     )}
+                    {"caveat" in tier && (
+                      <p className="mt-3 border-l-2 border-slate-deep bg-slate/15 px-3 py-2 text-xs italic leading-relaxed text-ink-soft">
+                        {tier.caveat}
+                      </p>
+                    )}
                   </div>
+                  {"formUrl" in tier && (
+                    <div className="mt-2 w-full sm:mt-0 sm:w-44 sm:shrink-0">
+                      <a
+                        href={tier.formUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cta-wash group flex items-baseline justify-between gap-3 border border-ink px-4 py-3 sm:px-5 sm:py-4"
+                      >
+                        <span className="display text-xl lowercase leading-none tracking-tight text-bone">
+                          register
+                        </span>
+                        <span
+                          aria-hidden
+                          className="display shrink-0 text-xl leading-none text-bone transition-transform group-hover:translate-x-1"
+                        >
+                          →
+                        </span>
+                      </a>
+                    </div>
+                  )}
                 </div>
               </Reveal>
             ))}
@@ -104,8 +106,8 @@ export default function TicketsPage() {
             <p className="label mt-4 text-ink-faint">{tickets.mealsNote}</p>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-6 border-l-2 border-slate-deep bg-slate/15 px-5 py-4 text-sm italic leading-relaxed text-ink-soft">
-              {tickets.note}
+            <p className="mt-20 ">
+              All campers have access to the same offerings regardless of ticket tier purchased. The details of each tier describe what the given amount helps us contribute toward overall.
             </p>
           </Reveal>
         </section>
@@ -117,16 +119,6 @@ export default function TicketsPage() {
               {tickets.closing}
             </h2>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href={tickets.googleFormUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 bg-ink px-6 py-3 text-sm uppercase tracking-[0.18em] text-paper transition-colors hover:bg-petal-deep"
-              >
-                Fill out RSVP form
-                <span className="transition-transform group-hover:translate-x-1">→</span>
-              </a>
-              
               <a
                 href={`mailto:${site.contact.email}`}
                 className="border-b border-ink/40 pb-0.5 text-sm uppercase tracking-[0.18em] text-ink transition-colors hover:border-ink"

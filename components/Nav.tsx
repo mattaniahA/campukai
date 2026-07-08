@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 const links = [
   { href: "/#about", label: "About" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/sponsor", label: "Sponsor" },
+  // { href: "/sponsor", label: "Sponsor" },
 ];
 
 export default function Nav() {
