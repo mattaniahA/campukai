@@ -27,20 +27,12 @@ export default function Hero() {
 
       {/* poster frame — stamped corner text + stars */}
       <motion.div
-        {...rise(0.5)}
-        className="label pointer-events-none absolute inset-x-0 top-16 z-10 flex items-center justify-between px-5 text-ink sm:top-[4.5rem] sm:px-8"
+        {...rise(0.6)}
+        className="label pointer-events-none absolute inset-x-0 bottom-5 z-10 flex items-center justify-between px-5 text-ink sm:px-8"
       >
         <span>Aug 13–16</span>
         <span aria-hidden>✦</span>
         <span>Ukiah, CA</span>
-      </motion.div>
-      <motion.div
-        {...rise(0.6)}
-        className="label pointer-events-none absolute inset-x-0 bottom-5 z-10 flex items-center justify-between px-5 text-ink sm:px-8"
-      >
-        <span>Lake Mendocino</span>
-        <span aria-hidden>✦</span>
-        <span>Four days, camping</span>
       </motion.div>
 
       <div className="pointer-events-none relative z-10 flex flex-col items-center">
