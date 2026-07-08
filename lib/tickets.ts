@@ -31,7 +31,7 @@ export const tickets = {
       price: "$50",
       body: "Work-trade option for assigned volunteers only.",
       link: {
-        label: "Sign up to volunteer here",
+        label: "Sign up to volunteer",
         href: "https://docs.google.com/forms/d/e/1FAIpQLSfjShxkCCIb5RVyaPF2_LKwedD59HMvnrHcAKz00t70vOjTnQ/viewform?usp=sharing&ouid=100976631237999044087",
       },
     },
