@@ -15,18 +15,13 @@ function Media({ item, index }: { item: GalleryItem; index: number }) {
   return (
     <div className={`relative w-full overflow-hidden bg-moss-deep ${ratioClass[item.ratio]}`}>
       {item.src ? (
-        <>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={item.src}
-            alt={item.caption}
-            className="absolute inset-0 h-full w-full object-cover contrast-110 grayscale"
-            loading="lazy"
-          />
-          {/* green duotone treatment */}
-          <div className="absolute inset-0 bg-gradient-to-br from-fern to-moss-deep mix-blend-color" />
-          <div className="absolute inset-0 bg-moss mix-blend-multiply opacity-25" />
-        </>
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={item.src}
+          alt={item.caption}
+          className="absolute inset-0 h-full w-full object-cover"
+          loading="lazy"
+        />
       ) : (
         <PlaceholderTile item={item} index={index} />
       )}
@@ -83,12 +78,6 @@ export default function Gallery() {
                 <Media item={item} index={i} />
               </div>
             </div>
-            <div className="flex items-center justify-between gap-3 border-t rule px-3 py-2.5">
-              <span className="text-xs text-ink">{item.caption}</span>
-              <span className="label !text-[0.6rem]">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-            </div>
           </motion.button>
         ))}
       </div>
@@ -144,12 +133,6 @@ export default function Gallery() {
               className="w-full max-w-xl border rule bg-bone"
             >
               <Media item={current} index={active} />
-              <figcaption className="flex items-center justify-between border-t rule px-4 py-3 text-xs text-ink">
-                <span>{current.caption}</span>
-                <span className="label !text-[0.6rem]">
-                  fig. {String(active + 1).padStart(2, "0")} / {galleryItems.length}
-                </span>
-              </figcaption>
             </motion.figure>
           </motion.div>
         )}

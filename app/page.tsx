@@ -10,7 +10,11 @@ import PlaceholderTile from "@/components/PlaceholderTile";
 import SectionHead from "@/components/SectionHead";
 
 export default function Home() {
-  const teaser = galleryItems.slice(0, 3);
+  const teaserFiles = ["IMG_3843", "IMG_3866", "IMG_3826"];
+  const teaser = teaserFiles.flatMap((file) => {
+    const item = galleryItems.find((i) => i.src?.includes(file));
+    return item ? [item] : [];
+  });
 
   return (
     <>
@@ -84,13 +88,17 @@ export default function Home() {
                     className="group block border rule bg-bone/60 transition-colors hover:border-ink"
                   >
                     <div className="relative aspect-[4/3] w-full overflow-hidden">
-                      <PlaceholderTile item={item} index={i} />
-                    </div>
-                    <div className="flex items-center justify-between border-t rule px-3 py-2.5">
-                      <span className="text-xs text-ink">{item.caption}</span>
-                      <span className="label !text-[0.6rem]">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
+                      {item.src ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={item.src}
+                          alt={item.caption}
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <PlaceholderTile item={item} index={i} />
+                      )}
                     </div>
                   </Link>
                 </Reveal>
