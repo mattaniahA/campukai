@@ -60,23 +60,6 @@ export default function TicketsPage() {
                   </div>
                   <div className="flex-1 text-sm leading-relaxed text-ink-soft sm:text-base">
                     <p>{tier.body}</p>
-                    {"link" in tier && (
-                      <p className="mt-2">
-                        <a
-                          href={tier.link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="border-b border-ink/40 pb-0.5 text-ink transition-colors hover:border-petal-deep hover:text-petal-deep"
-                        >
-                          {tier.link.label}
-                        </a>
-                      </p>
-                    )}
-                    {"caveat" in tier && (
-                      <p className="mt-3 border-l-2 border-slate-deep bg-slate/15 px-3 py-2 text-xs italic leading-relaxed text-ink-soft">
-                        {tier.caveat}
-                      </p>
-                    )}
                   </div>
                   {"formUrl" in tier && (
                     <div className="mt-2 w-full sm:mt-0 sm:w-44 sm:shrink-0">
