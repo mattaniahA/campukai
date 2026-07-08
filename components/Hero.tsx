@@ -13,16 +13,20 @@ export default function Hero() {
 
   return (
     <section className="relative isolate flex min-h-[92vh] flex-col items-center justify-center overflow-hidden px-5 text-center">
-      {/* ghost script flowing behind the headline */}
+      {/* ghost script staggered behind the headline */}
       <motion.div
         aria-hidden
         initial={reduce ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.6, delay: 0.2 }}
-        className="script-ghost pointer-events-none absolute inset-0 z-0 flex flex-col items-center justify-center text-center leading-[0.75]"
+        className="script-ghost script-ghost--bleed pointer-events-none absolute inset-0 z-0 overflow-hidden leading-[0.75]"
       >
-        <span className="text-[32vw] sm:text-[24vw]">Camp</span>
-        <span className="text-[32vw] sm:text-[24vw]">U-Kai</span>
+        <span className="absolute left-0 top-[9%] whitespace-nowrap bg-white/30 px-[3vw] py-[1.5vw] text-[48vw] sm:text-[35vw]">
+          Camp
+        </span>
+        <span className="absolute -right-[2vw] top-[48%] whitespace-nowrap bg-white/30 px-[3vw] py-[1.5vw] text-[48vw] sm:text-[35vw]">
+          U-Kai
+        </span>
       </motion.div>
 
       {/* poster frame — stamped corner text + stars */}
