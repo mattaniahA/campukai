@@ -12,8 +12,6 @@ export const metadata: Metadata = {
 };
 
 export default function TicketsPage() {
-  const smsHref = `sms:+1${tickets.payment.rsvpNumber.replace(/\D/g, "")}`;
-
   return (
     <>
       <Nav />
@@ -84,14 +82,19 @@ export default function TicketsPage() {
           <Reveal delay={0.08}>
             <div className="mt-8 grid gap-px border rule bg-paper-soft sm:grid-cols-3">
               {[
-                ["Text to RSVP", tickets.payment.rsvpNumber, smsHref],
+                ["RSVP Form", "Fill out & submit", tickets.googleFormUrl],
                 ["Venmo", tickets.payment.venmo, undefined],
                 ["CashApp", tickets.payment.cashapp, undefined],
               ].map(([k, v, href]) => (
                 <div key={k} className="border-t rule px-5 py-5 first:border-t-0 sm:border-l sm:border-t-0 sm:first:border-l-0">
                   <div className="label mb-2">{k}</div>
                   {href ? (
-                    <a href={href} className="display text-lg font-medium text-ink hover:text-petal-deep">
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="display text-lg font-medium text-ink hover:text-petal-deep"
+                    >
                       {v}
                     </a>
                   ) : (
@@ -124,10 +127,12 @@ export default function TicketsPage() {
             </h2>
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href={smsHref}
+                href={tickets.googleFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 bg-ink px-6 py-3 text-sm uppercase tracking-[0.18em] text-paper transition-colors hover:bg-petal-deep"
               >
-                Text to RSVP
+                Fill out RSVP form
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
               <a

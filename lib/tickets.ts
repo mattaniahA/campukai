@@ -37,15 +37,17 @@ export const tickets = {
   mealsNote: "4 shared meals include 1 arrival meal, 2 basic breakfasts, 1 brunch.",
 
   payment: {
-    rsvpNumber: "707-701-3731",
     venmo: "@campukai",
     cashapp: "$campukai",
   },
 
+  googleFormUrl:
+    "https://docs.google.com/forms/d/e/1FAIpQLScuO-AoKS331Y3cwTzMwJbPbQrT1g9nzioxukqACAGVBZQZkQ/viewform",
+
   rsvpSteps: [
-    "Text our RSVP number with your chosen ticket tier and we'll confirm availability.",
-    "Once confirmed, send your payment via Venmo (@campukai) or CashApp ($campukai).",
-    "Text a screenshot of your payment plus your name(s) to our RSVP number.",
+    "Choose your ticket tier and send payment via Venmo (@campukai) or CashApp ($campukai).",
+    "Fill out our RSVP form with your info, dietary needs, and emergency contact.",
+    "Confirm on the form that payment has been sent and sign the liability waiver.",
     "Once received, your name(s) will be added to our official guest list.",
     "Receipts & confirmations will be sent once processed.",
   ],
