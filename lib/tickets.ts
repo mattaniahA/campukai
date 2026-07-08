@@ -9,7 +9,6 @@ export const tickets = {
     "We hope you can contribute toward making this collective collaboration possible. Please reach out with any questions, comments, or concerns."
   ],
 
-  priceNote: "Sliding scale — prices subject to update.",
 
   tiers: [
     {
@@ -31,6 +30,10 @@ export const tickets = {
       name: "Volunteer",
       price: "$50",
       body: "Work-trade option for assigned volunteers only.",
+      link: {
+        label: "Sign up to volunteer here",
+        href: "https://docs.google.com/forms/d/e/1FAIpQLSdBFg9AIUo_zPWNKdbWZQz3M-GvWi4rX5y6LO3VC1SdW8xnJw/viewform",
+      },
     },
   ],
 

@@ -54,16 +54,27 @@ export default function TicketsPage() {
                       {tier.name}
                     </h3>
                   </div>
-                  <p className="text-sm leading-relaxed text-ink-soft sm:text-base">
-                    {tier.body}
-                  </p>
+                  <div className="text-sm leading-relaxed text-ink-soft sm:text-base">
+                    <p>{tier.body}</p>
+                    {"link" in tier && (
+                      <p className="mt-2">
+                        <a
+                          href={tier.link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="border-b border-ink/40 pb-0.5 text-ink transition-colors hover:border-petal-deep hover:text-petal-deep"
+                        >
+                          {tier.link.label} →
+                        </a>
+                      </p>
+                    )}
+                  </div>
                 </div>
               </Reveal>
             ))}
           </div>
           <Reveal>
-            <p className="label mt-4">{tickets.priceNote}</p>
-            <p className="label mt-1 text-ink-faint">{tickets.mealsNote}</p>
+            <p className="label mt-4 text-ink-faint">{tickets.mealsNote}</p>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-6 border-l-2 border-slate-deep bg-slate/15 px-5 py-4 text-sm italic leading-relaxed text-ink-soft">
