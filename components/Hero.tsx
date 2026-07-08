@@ -2,7 +2,6 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { site } from "@/lib/site";
-import BloomField from "./BloomField";
 
 export default function Hero() {
   const reduce = useReducedMotion();
@@ -14,9 +13,6 @@ export default function Hero() {
 
   return (
     <section className="relative isolate flex min-h-[92vh] flex-col items-center justify-center overflow-hidden px-5 text-center">
-      {/* ambient wash */}
-      <BloomField />
-
       {/* ghost script flowing behind the headline */}
       <motion.div
         aria-hidden
