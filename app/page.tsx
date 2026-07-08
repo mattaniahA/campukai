@@ -10,7 +10,11 @@ import PlaceholderTile from "@/components/PlaceholderTile";
 import SectionHead from "@/components/SectionHead";
 
 export default function Home() {
-  const teaser = galleryItems.slice(0, 3);
+  const teaserFiles = ["IMG_3843", "IMG_3866", "IMG_3826"];
+  const teaser = teaserFiles.flatMap((file) => {
+    const item = galleryItems.find((i) => i.src?.includes(file));
+    return item ? [item] : [];
+  });
 
   return (
     <>
