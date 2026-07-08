@@ -14,65 +14,72 @@ export default function Hero() {
 
   return (
     <section className="relative isolate flex min-h-[92vh] flex-col items-center justify-center overflow-hidden px-5 text-center">
-      {/* interactive wash — tap to bloom */}
+      {/* ambient wash */}
       <BloomField />
+
+      {/* ghost script flowing behind the headline */}
+      <motion.div
+        aria-hidden
+        initial={reduce ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.6, delay: 0.2 }}
+        className="script-ghost pointer-events-none absolute inset-0 z-0 flex flex-col items-center justify-center text-center leading-[0.75]"
+      >
+        <span className="text-[32vw] sm:text-[24vw]">Camp</span>
+        <span className="text-[32vw] sm:text-[24vw]">U-Kai</span>
+      </motion.div>
+
+      {/* poster frame — stamped corner text + stars */}
+      <motion.div
+        {...rise(0.5)}
+        className="label pointer-events-none absolute inset-x-0 top-16 z-10 flex items-center justify-between px-5 text-ink sm:top-[4.5rem] sm:px-8"
+      >
+        <span>Aug 13–16</span>
+        <span aria-hidden>✦</span>
+        <span>Ukiah, CA</span>
+      </motion.div>
+      <motion.div
+        {...rise(0.6)}
+        className="label pointer-events-none absolute inset-x-0 bottom-5 z-10 flex items-center justify-between px-5 text-ink sm:px-8"
+      >
+        <span>Lake Mendocino</span>
+        <span aria-hidden>✦</span>
+        <span>Four days, camping</span>
+      </motion.div>
 
       {/* content sits above; empty space falls through to the bloom layer */}
       <div className="pointer-events-none relative z-10 flex flex-col items-center">
-        <motion.p {...rise(0)} className="label text-haze-deep">
-          {site.dates}
-        </motion.p>
-
-        <h1 className="display mt-4 font-bold uppercase leading-[0.84] tracking-tight text-ink">
-          <motion.span {...rise(0.08)} className="block text-6xl sm:text-8xl lg:text-9xl">
-            Camp
+        <h1 className="display font-bold lowercase leading-[0.82] tracking-tight text-ink">
+          <motion.span {...rise(0.08)} className="block text-7xl sm:text-8xl lg:text-9xl">
+            camp
           </motion.span>
-          <motion.span
-            {...rise(0.16)}
-            className="block text-6xl text-moss-deep sm:text-8xl lg:text-9xl"
-          >
-            U-Kai
+          <motion.span {...rise(0.16)} className="block text-7xl sm:text-8xl lg:text-9xl">
+            u-kai
           </motion.span>
         </h1>
 
+        
         <motion.p
-          {...rise(0.28)}
+          {...rise(0.32)}
           className="mt-6 max-w-sm text-sm leading-relaxed text-ink-soft"
         >
-          A DIY summer camp in the hills of Ukiah. Come and play.
-        </motion.p>
-
-        <motion.p {...rise(0.36)} className="label mt-2 text-haze-deep/80">
-          {site.location}
+          A DIY summer camp in the hills of Ukiah.
         </motion.p>
 
         <motion.div
-          {...rise(0.46)}
+          {...rise(0.44)}
           className="pointer-events-auto mt-8 flex flex-wrap items-center justify-center gap-4"
         >
           <a
             href={site.ticketUrl}
-            className="group inline-flex items-center gap-2 bg-ink px-6 py-3 text-sm uppercase tracking-[0.18em] text-paper transition-colors hover:bg-haze-deep"
+            className="group inline-flex items-center gap-2 bg-ink px-6 py-3 text-sm uppercase tracking-[0.18em] text-paper transition-colors hover:bg-moss-deep"
           >
             Get tickets
             <span className="transition-transform group-hover:translate-x-1">→</span>
           </a>
-          <a
-            href="#about"
-            className="border-b border-ink/40 pb-0.5 text-sm uppercase tracking-[0.18em] text-ink transition-colors hover:border-ink"
-          >
-            What it is
-          </a>
+          
         </motion.div>
       </div>
-
-      {/* quiet invitation */}
-      <motion.p
-        {...rise(0.7)}
-        className="pointer-events-none absolute bottom-6 z-10 text-[0.62rem] uppercase tracking-[0.2em] text-haze-deep/60"
-      >
-        tap anywhere ✿
-      </motion.p>
     </section>
   );
 }

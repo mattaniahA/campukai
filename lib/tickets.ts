@@ -3,36 +3,41 @@
  * update `price` on each tier here.
  */
 export const tickets = {
-  intro:
-    "Camp U-Kai is an unregistered not-for-profit organization. All earnings from ticket sales go toward campsites, food, workshops, activities, campers, and entertainment support. We hope you can contribute toward making this collective collaboration possible. Please reach out with any questions, comments, or concerns.",
+  intro: [
+    "Camp U-Kai is an unregistered not-for-profit organization.",
+    "All earnings from ticket sales go toward campsites, food, workshops, activities, campers, and entertainment support.",
+    "We hope you can contribute toward making this collective collaboration possible. Please reach out with any questions, comments, or concerns."
+  ],
 
   priceNote: "Sliding scale — prices subject to update.",
 
   tiers: [
     {
-      name: "Access",
-      price: "$65",
-      body: "Covers the cost of your campsite and 4 meals (2 basic breakfasts, 1 lunch, 1 dinner).",
+      name: "Supporter",
+      price: "$160",
+      body: "Helps support activities & entertainment.",
     },
     {
       name: "Sustainer",
-      price: "$75",
-      body: "Covers your campsite and 4 meals, and helps support camp resources.",
+      price: "$140",
+      body: "Helps support camp resources.",
     },
     {
-      name: "Supporter",
-      price: "$85",
-      body: "Covers your campsite and 4 meals, helps support camp resources, and helps support entertainment and activities.",
+      name: "Access",
+      price: "$125",
+      body: "Low cost ticket, covers basic cost of campsite & shared meals.",
     },
     {
-      name: "Volunteers",
-      price: "$30",
-      body: "The work-trade included option, for assigned volunteers only.",
+      name: "Volunteer",
+      price: "$50",
+      body: "Work-trade option for assigned volunteers only.",
     },
   ],
 
+  mealsNote: "4 shared meals include 1 arrival meal, 2 basic breakfasts, 1 brunch.",
+
   payment: {
-    rsvpNumber: "341-202-7996",
+    rsvpNumber: "707-701-3731",
     venmo: "@campukai",
     cashapp: "$campukai",
   },
@@ -46,6 +51,16 @@ export const tickets = {
   ],
 
   note: "All campers have access to the same offerings regardless of ticket tier purchased. The details of each tier describe what the given amount helps us contribute toward overall.",
+
+  info: {
+    points: [
+      "Camp U-Kai is a not-for-profit (non-registered) organization.",
+      "All earnings from ticket sales go towards campsites, food, workshops, activities, campers, and entertainment support.",
+      "We hope you can contribute towards making this collective collaboration possible.",
+      "Please feel free to reach out with any comments, questions, or concerns.",
+    ],
+    credit: "friends of the valley",
+  },
 
   closing: "See you there!",
 } as const;

@@ -32,13 +32,18 @@ export default function SponsorPage() {
       <Nav />
       <main className="flex-1">
         {/* Masthead */}
-        <section className="mx-auto max-w-4xl px-5 pb-10 pt-24 sm:px-8 sm:pt-28">
+        <section className="relative mx-auto max-w-4xl overflow-hidden px-5 pb-10 pt-24 sm:px-8 sm:pt-28">
+          <span
+            aria-hidden
+            className="script-ghost pointer-events-none absolute right-0 -top-2 z-0 whitespace-nowrap text-[6rem] leading-none sm:text-[8rem]"
+          >
+            Camp U-Kai
+          </span>
           <Reveal>
-            <span className="label">{sponsor.kicker}</span>
-            <h1 className="display mt-4 text-5xl font-medium leading-[0.9] tracking-tight text-ink sm:text-7xl">
+            <h1 className="display text-6xl lowercase leading-[0.9] tracking-tight text-ink sm:text-8xl">
               {sponsor.title}
             </h1>
-            <p className="display mt-6 text-xl italic text-petal-deep sm:text-2xl">
+            <p className="script mt-6 text-3xl text-ink sm:text-4xl">
               {sponsor.lede}
             </p>
             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ink-soft sm:text-base">
@@ -66,7 +71,7 @@ export default function SponsorPage() {
         <section className="mx-auto max-w-4xl px-5 pb-16 sm:px-8">
           <Reveal>
             <div className="border-l-2 border-slate-deep bg-slate/20 px-6 py-6 sm:px-8">
-              <p className="display text-lg italic leading-snug text-ink sm:text-xl">
+              <p className="text-sm italic leading-relaxed text-ink sm:text-base">
                 {sponsor.invite}
               </p>
             </div>
@@ -116,7 +121,7 @@ export default function SponsorPage() {
           <Reveal>
             <div className="border rule bg-olive/15 px-6 py-10 sm:px-10 sm:py-12">
               <span className="label text-olive-deep">Let&apos;s work together</span>
-              <h2 className="display mt-3 text-3xl font-medium tracking-tight text-ink sm:text-4xl">
+              <h2 className="display mt-3 text-3xl lowercase tracking-tight text-ink sm:text-4xl">
                 Want to sponsor or collaborate?
               </h2>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">

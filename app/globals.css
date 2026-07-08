@@ -1,28 +1,29 @@
 @import "tailwindcss";
 
 /* ----------------------------------------------------------------------------
-   Camp U-Kai — grainy green-gradient direction
-   Soft wild-green wash fading to bone, black type, mono + bold grotesque.
-   (After the FORRA / "Growth" / Pokémon poster references.)
+   Camp U-Kai — sun-bleached poster direction
+   Animated yellow/green/white gradient wash, heavy film grain, ghost script,
+   chunky rounded black display type, typewriter mono, ✦ stars.
+   (After the "tickets / release 02" flyer reference.)
 ---------------------------------------------------------------------------- */
 :root {
-  --bone: #e9e7d6;
-  --bone-soft: #eef0e0;
-  --bone-deep: #dcdcc4;
+  --bone: #f7f6e6;
+  --bone-soft: #fbfaef;
+  --bone-deep: #edecd0;
 
-  --moss: #7d9b52;
-  --moss-deep: #4a6029;
-  --fern: #9cbf5e;
-  --lime: #c6d15c;
-  --lime-deep: #97a52e;
-  --sky: #a9c6d8;
-  --sky-deep: #5b7f94;
+  --moss: #7ec98c;
+  --moss-deep: #2e7d4f;
+  --fern: #a9db95;
+  --lime: #eef0a0;
+  --lime-deep: #8f941f;
+  --sky: #bcd8ce;
+  --sky-deep: #5f8f7e;
 
-  --ink: #14160f;
-  --ink-soft: #45493a;
-  --ink-faint: #7b7f68;
+  --ink: #101208;
+  --ink-soft: #3f4433;
+  --ink-faint: #767b62;
 
-  /* Back-compat aliases so existing utilities keep working, retinted green. */
+  /* Back-compat aliases so existing utilities keep working, retinted. */
   --paper: var(--bone);
   --paper-soft: var(--bone-soft);
   --paper-deep: var(--bone-deep);
@@ -39,7 +40,7 @@
   --meadow: var(--bone);
   --rust: #8a7a3a;
   --rust-deep: #5f5a2c;
-  --lichen: #b7bd9f;
+  --lichen: #bcc49e;
 }
 
 @theme inline {
@@ -75,8 +76,9 @@
   --color-rust-deep: var(--rust-deep);
   --color-lichen: var(--lichen);
 
-  --font-display: var(--font-space-grotesk);
+  --font-display: var(--font-baloo);
   --font-mono: var(--font-space-mono);
+  --font-script: var(--font-pinyon);
 }
 
 html {
@@ -88,16 +90,87 @@ body {
   font-family: var(--font-space-mono), ui-monospace, monospace;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  background-color: var(--fern);
-  background-image:
-    radial-gradient(65% 55% at 78% 12%, rgba(74, 96, 41, 0.85), transparent 68%),
-    radial-gradient(60% 60% at 16% 82%, rgba(233, 231, 214, 0.96), transparent 66%),
-    radial-gradient(55% 45% at 58% 52%, rgba(169, 198, 216, 0.4), transparent 70%),
-    radial-gradient(80% 70% at 92% 96%, rgba(74, 96, 41, 0.55), transparent 72%),
-    linear-gradient(158deg, var(--moss) 0%, var(--fern) 42%, var(--bone) 100%);
+  /* Static base wash — the animated .gradient-field paints over this. */
+  background-color: var(--bone-soft);
+  background-image: linear-gradient(
+    150deg,
+    #f0eda0 0%,
+    #f9f8ec 46%,
+    #cfe9b6 100%
+  );
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* ---- Animated multicolored gradient wash --------------------------------
+   Fixed layer behind everything: big soft blobs of yellow, green and white
+   drifting slowly over the base wash. Pure CSS, GPU-friendly transforms. */
+.gradient-field {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(150deg, #f0eda0 0%, #f9f8ec 46%, #cfe9b6 100%);
+}
+
+.gradient-field .blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(64px);
+  will-change: transform;
+  animation: blob-drift 24s ease-in-out infinite alternate;
+}
+
+.gradient-field .blob-green {
+  width: 60vmax;
+  height: 60vmax;
+  top: -18%;
+  right: -14%;
+  background: radial-gradient(circle, rgba(94, 190, 122, 0.85), transparent 68%);
+}
+
+.gradient-field .blob-yellow {
+  width: 55vmax;
+  height: 55vmax;
+  bottom: -22%;
+  left: -16%;
+  background: radial-gradient(circle, rgba(240, 235, 130, 0.95), transparent 70%);
+  animation-duration: 30s;
+  animation-delay: -8s;
+}
+
+.gradient-field .blob-white {
+  width: 48vmax;
+  height: 48vmax;
+  top: 34%;
+  left: 24%;
+  background: radial-gradient(circle, rgba(255, 255, 253, 0.95), transparent 66%);
+  animation-duration: 26s;
+  animation-delay: -14s;
+}
+
+.gradient-field .blob-deep {
+  width: 42vmax;
+  height: 42vmax;
+  top: 52%;
+  right: 4%;
+  background: radial-gradient(circle, rgba(60, 160, 95, 0.5), transparent 68%);
+  animation-duration: 34s;
+  animation-delay: -20s;
+}
+
+@keyframes blob-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-7vw, 6vh) scale(1.18);
+  }
+  100% {
+    transform: translate(6vw, -5vh) scale(0.92);
+  }
 }
 
 /* Heavier film grain for that sprayed / risograph poster feel */
@@ -106,12 +179,14 @@ body {
   inset: 0;
   z-index: 60;
   pointer-events: none;
-  opacity: 0.2;
+  opacity: 0.22;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ---- Editorial helpers ---- */
+
+/* Stamped typewriter label — small caps mono, wide tracking */
 .label {
   font-family: var(--font-space-mono), monospace;
   text-transform: uppercase;
@@ -124,14 +199,47 @@ body {
   border-color: color-mix(in srgb, var(--ink) 22%, transparent);
 }
 
+/* Chunky rounded black display — the "tickets" face */
 .display {
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
-  letter-spacing: -0.01em;
+  font-family: var(--font-baloo), system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
+/* Ghost script — thin outlined copperplate flowing behind headlines.
+   Masked so long words dissolve into the wash instead of hitting a hard
+   clip edge when they run past their container. */
+.script-ghost {
+  font-family: var(--font-pinyon), cursive;
+  font-weight: 400;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--ink) 32%, transparent);
+  user-select: none;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+}
+
+/* Filled script for small flourishes */
+.script {
+  font-family: var(--font-pinyon), cursive;
+  font-weight: 400;
 }
 
 /* Translucent bone panel so text stays readable over the wash */
 .panel {
-  background: color-mix(in srgb, var(--bone) 62%, transparent);
+  background: color-mix(in srgb, var(--bone) 55%, transparent);
   backdrop-filter: blur(4px);
 }
 
@@ -158,6 +266,9 @@ body {
     scroll-behavior: auto;
   }
   .animate-marquee {
+    animation: none;
+  }
+  .gradient-field .blob {
     animation: none;
   }
 }

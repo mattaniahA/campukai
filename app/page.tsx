@@ -22,11 +22,11 @@ export default function Home() {
         {/* About */}
         <section id="about" className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
           <Reveal>
-            <SectionHead index="01 / About" title="Come and play" />
+            <SectionHead index="01 / About" title="who we are" />
           </Reveal>
           <div className="mt-12 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             <Reveal>
-              <p className="display text-2xl font-medium leading-snug tracking-tight text-ink sm:text-3xl">
+              <p className="text-sm uppercase leading-relaxed tracking-[0.08em] text-ink sm:text-base">
                 {site.about.lead}
               </p>
             </Reveal>
@@ -59,8 +59,11 @@ export default function Home() {
             <Reveal>
               <div className="flex flex-wrap items-baseline justify-between gap-4 border-b rule pb-4">
                 <div className="flex items-baseline gap-4">
-                  <span className="label pt-1">02 / Archive</span>
-                  <h2 className="display text-3xl font-medium tracking-tight text-ink sm:text-5xl">
+                  <span className="label pt-1">
+                    <span aria-hidden className="mr-2 text-ink">✦</span>
+                    02 / Archive
+                  </span>
+                  <h2 className="display text-3xl lowercase tracking-tight text-ink sm:text-5xl">
                     From last year
                   </h2>
                 </div>
@@ -99,8 +102,11 @@ export default function Home() {
         {/* CTA */}
         <section className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
           <Reveal>
-            <span className="label">03 / Tickets</span>
-            <h2 className="display mt-4 max-w-3xl text-4xl font-medium leading-[0.95] tracking-tight text-ink sm:text-6xl">
+            <span className="label">
+              <span aria-hidden className="mr-2 text-ink">✦</span>
+              03 / Tickets
+            </span>
+            <h2 className="display mt-4 max-w-3xl text-4xl lowercase leading-[0.95] tracking-tight text-ink sm:text-6xl">
               Come to camp. Bring a tent, a friend, and something to share.
             </h2>
             <p className="mt-6 max-w-md text-sm text-ink-soft sm:text-base">

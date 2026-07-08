@@ -8,7 +8,7 @@ import { tickets } from "@/lib/tickets";
 
 export const metadata: Metadata = {
   title: `Tickets — ${site.name}`,
-  description: tickets.intro,
+  description: tickets.intro.join(" "),
 };
 
 export default function TicketsPage() {
@@ -19,15 +19,22 @@ export default function TicketsPage() {
       <Nav />
       <main className="flex-1">
         {/* Masthead */}
-        <section className="mx-auto max-w-4xl px-5 pb-10 pt-24 sm:px-8 sm:pt-28">
+        <section className="relative mx-auto max-w-4xl overflow-hidden px-5 pb-10 pt-24 sm:px-8 sm:pt-28">
+          <span
+            aria-hidden
+            className="script-ghost pointer-events-none absolute right-0 -top-2 z-0 whitespace-nowrap text-[6rem] leading-none sm:text-[8rem]"
+          >
+            Camp U-Kai
+          </span>
           <Reveal>
-            <span className="label">{site.dates} · {site.location}</span>
-            <h1 className="display mt-4 text-5xl font-medium leading-[0.9] tracking-tight text-ink sm:text-7xl">
-              Tickets
+            <h1 className="display text-6xl lowercase leading-[0.9] tracking-tight text-ink sm:text-8xl">
+              tickets
             </h1>
-            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ink-soft sm:text-base">
-              {tickets.intro}
-            </p>
+            <div className="mt-6 max-w-2xl space-y-3 text-sm leading-relaxed text-ink-soft sm:text-base">
+              {tickets.intro.map((line, i) => (
+                <p key={i}>{line}</p>
+              ))}
+            </div>
           </Reveal>
         </section>
 
@@ -36,17 +43,18 @@ export default function TicketsPage() {
           <Reveal>
             <SectionHead index="01 / Tiers" title="Sliding scale" />
           </Reveal>
-          <div className="mt-8 border-t rule">
+          <div className="mt-8 rule">
             {tickets.tiers.map((tier, i) => (
               <Reveal key={tier.name} delay={i * 0.06}>
                 <div className="flex flex-col gap-2 border-b rule py-6 sm:flex-row sm:items-baseline sm:gap-8">
-                  <div className="flex w-full items-baseline justify-between gap-4 sm:w-56 sm:shrink-0">
-                    <h3 className="display text-2xl font-medium tracking-tight text-ink">
-                      {tier.name}
-                    </h3>
-                    <span className="display text-2xl font-medium text-petal-deep tabular-nums">
+                  <div className="flex w-full items-baseline gap-3 sm:w-64 sm:shrink-0">
+                    <span className="display text-3xl tracking-tight text-ink tabular-nums">
                       {tier.price}
                     </span>
+                    <span aria-hidden className="text-sm text-ink">✦</span>
+                    <h3 className="display text-3xl lowercase tracking-tight text-ink">
+                      {tier.name}
+                    </h3>
                   </div>
                   <p className="text-sm leading-relaxed text-ink-soft sm:text-base">
                     {tier.body}
@@ -57,6 +65,7 @@ export default function TicketsPage() {
           </div>
           <Reveal>
             <p className="label mt-4">{tickets.priceNote}</p>
+            <p className="label mt-1 text-ink-faint">{tickets.mealsNote}</p>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-6 border-l-2 border-slate-deep bg-slate/15 px-5 py-4 text-sm italic leading-relaxed text-ink-soft">
@@ -65,10 +74,11 @@ export default function TicketsPage() {
           </Reveal>
         </section>
 
+
         {/* RSVP & confirm */}
         <section className="mx-auto max-w-4xl px-5 py-14 sm:px-8">
           <Reveal>
-            <SectionHead index="02 / RSVP" title="Reserve & confirm" />
+            <SectionHead index="03 / RSVP" title="Reserve & confirm" />
           </Reveal>
 
           <Reveal delay={0.08}>
@@ -109,7 +119,7 @@ export default function TicketsPage() {
         {/* Closing */}
         <section className="mx-auto max-w-4xl px-5 py-20 sm:px-8">
           <Reveal>
-            <h2 className="display text-4xl font-medium italic tracking-tight text-ink sm:text-6xl">
+            <h2 className="script text-5xl tracking-tight text-ink sm:text-7xl">
               {tickets.closing}
             </h2>
             <div className="mt-8 flex flex-wrap gap-4">

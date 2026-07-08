@@ -15,11 +15,16 @@ export default function GalleryPage() {
     <>
       <Nav />
       <main className="flex-1">
-        <section className="mx-auto max-w-6xl px-5 pb-10 pt-16 sm:px-8 sm:pt-20">
+        <section className="relative mx-auto max-w-6xl overflow-hidden px-5 pb-10 pt-16 sm:px-8 sm:pt-20">
+          <span
+            aria-hidden
+            className="script-ghost pointer-events-none absolute right-0 top-0 z-0 whitespace-nowrap text-[6rem] leading-none sm:text-[8rem]"
+          >
+            From last year
+          </span>
           <Reveal>
-            <span className="label">Archive / {site.dates}</span>
-            <h1 className="display mt-4 text-5xl font-medium tracking-tight text-ink sm:text-7xl">
-              Gallery
+            <h1 className="display text-6xl lowercase tracking-tight text-ink sm:text-8xl">
+              gallery
             </h1>
             <p className="mt-5 max-w-lg text-sm leading-relaxed text-ink-soft sm:text-base">
               Moments from camp — swimming holes, late sets, and everyone we love

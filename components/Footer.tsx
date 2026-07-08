@@ -8,8 +8,8 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
         <div className="grid gap-10 sm:grid-cols-[1.5fr_1fr_1fr]">
           <div>
-            <div className="display text-2xl font-medium tracking-tight text-ink">
-              Camp U-Kai
+            <div className="display text-2xl lowercase tracking-tight text-ink">
+              camp u-kai
             </div>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-soft">
               {site.dates} · {site.location}. A camp and festival in the hills of
@@ -77,7 +77,10 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col justify-between gap-2 border-t rule pt-6 text-xs text-ink-faint sm:flex-row">
           <span>© {new Date().getFullYear()} {site.name}</span>
-          <span className="label">Made in Ukiah, California</span>
+          <span className="label">
+            <span aria-hidden className="mr-2 text-ink">✦</span>
+            Made in Ukiah, California
+          </span>
         </div>
       </div>
     </footer>
