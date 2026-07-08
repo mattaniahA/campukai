@@ -36,21 +36,8 @@ export const tickets = {
 
   mealsNote: "4 shared meals include 1 arrival meal, 2 basic breakfasts, 1 brunch.",
 
-  payment: {
-    venmo: "@campukai",
-    cashapp: "$campukai",
-  },
-
   googleFormUrl:
     "https://docs.google.com/forms/d/e/1FAIpQLScuO-AoKS331Y3cwTzMwJbPbQrT1g9nzioxukqACAGVBZQZkQ/viewform",
-
-  rsvpSteps: [
-    "Choose your ticket tier and send payment via Venmo (@campukai) or CashApp ($campukai).",
-    "Fill out our RSVP form with your info, dietary needs, and emergency contact.",
-    "Confirm on the form that payment has been sent and sign the liability waiver.",
-    "Once received, your name(s) will be added to our official guest list.",
-    "Receipts & confirmations will be sent once processed.",
-  ],
 
   note: "All campers have access to the same offerings regardless of ticket tier purchased. The details of each tier describe what the given amount helps us contribute toward overall.",
 

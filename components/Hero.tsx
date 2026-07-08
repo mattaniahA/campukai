@@ -21,10 +21,10 @@ export default function Hero() {
         transition={{ duration: 1.6, delay: 0.2 }}
         className="script-ghost script-ghost--bleed pointer-events-none absolute inset-0 z-0 overflow-hidden leading-[0.75]"
       >
-        <span className="absolute left-0 top-[19%] whitespace-nowrap px-[3vw] py-[1.5vw] text-[32vw] sm:top-[14%] sm:text-[35vw]">
+        <span className="absolute left-0 top-[19%] whitespace-nowrap px-[3vw] py-[1.5vw] text-[66vw] sm:top-[14%] sm:text-[35vw]">
           Camp
         </span>
-        <span className="absolute -right-[2vw] top-[60%] whitespace-nowrap px-[3vw] py-[1.5vw] text-[32vw] sm:top-[50%] sm:text-[35vw]">
+        <span className="absolute -right-[2vw] top-[60%] whitespace-nowrap px-[3vw] py-[1.5vw] text-[66vw] sm:top-[50%] sm:text-[35vw]">
           U-Kai
         </span>
       </motion.div>
