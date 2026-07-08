@@ -36,6 +36,31 @@ export default function TicketsPage() {
           </Reveal>
         </section>
 
+        {/* Register CTA */}
+        <section className="mx-auto max-w-4xl px-5 pb-6 pt-2 sm:px-8">
+          <Reveal>
+            <a
+              href={tickets.googleFormUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex w-full items-center justify-between gap-4 rounded-full border-2 border-ink bg-moss-deep px-7 py-5 shadow-[0.35rem_0.35rem_0_var(--ink)] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[0.5rem_0.5rem_0_var(--ink)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[0.15rem_0.15rem_0_var(--ink)] sm:px-10 sm:py-7"
+            >
+              <span className="display text-3xl lowercase leading-none tracking-tight text-bone sm:text-5xl">
+                register for camp here!
+              </span>
+              <span
+                aria-hidden
+                className="display shrink-0 text-3xl leading-none text-bone transition-transform group-hover:translate-x-2 sm:text-5xl"
+              >
+                →
+              </span>
+            </a>
+            <p className="label mt-4">
+              Payment details, the liability waiver, and everything else you need are in the form.
+            </p>
+          </Reveal>
+        </section>
+
         {/* Sliding scale tiers */}
         <section className="mx-auto max-w-4xl px-5 py-14 sm:px-8">
           <Reveal>
@@ -64,7 +89,7 @@ export default function TicketsPage() {
                           rel="noopener noreferrer"
                           className="border-b border-ink/40 pb-0.5 text-ink transition-colors hover:border-petal-deep hover:text-petal-deep"
                         >
-                          {tier.link.label} →
+                          {tier.link.label} 
                         </a>
                       </p>
                     )}
@@ -83,31 +108,6 @@ export default function TicketsPage() {
           </Reveal>
         </section>
 
-
-        {/* Register */}
-        <section className="mx-auto max-w-4xl px-5 py-14 sm:px-8">
-          <Reveal>
-            <a
-              href={tickets.googleFormUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col gap-4 border-y rule py-10 sm:flex-row sm:items-center sm:justify-between"
-            >
-              <span className="display text-4xl lowercase leading-[0.95] tracking-tight text-ink transition-colors group-hover:text-petal-deep sm:text-6xl">
-                register &amp; rsvp here
-              </span>
-              <span
-                aria-hidden
-                className="display text-4xl text-ink transition-all group-hover:translate-x-2 group-hover:text-petal-deep sm:text-6xl"
-              >
-                →
-              </span>
-            </a>
-            <p className="label mt-4">
-              Payment details, the liability waiver, and everything else you need are in the form.
-            </p>
-          </Reveal>
-        </section>
 
         {/* Closing */}
         <section className="mx-auto max-w-4xl px-5 py-20 sm:px-8">
