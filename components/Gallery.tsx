@@ -29,17 +29,33 @@ function Media({ item, index }: { item: GalleryItem; index: number }) {
   );
 }
 
+function shuffle<T>(input: readonly T[]): T[] {
+  const arr = [...input];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 export default function Gallery() {
   const reduce = useReducedMotion();
   const [active, setActive] = useState<number | null>(null);
+  // Start with the canonical order so server and client markup match, then
+  // reshuffle after mount so each visit lands on a fresh sequence.
+  const [items, setItems] = useState<GalleryItem[]>(galleryItems);
+
+  useEffect(() => {
+    setItems(shuffle(galleryItems));
+  }, []);
 
   const close = useCallback(() => setActive(null), []);
   const step = useCallback(
     (dir: number) =>
       setActive((cur) =>
-        cur === null ? cur : (cur + dir + galleryItems.length) % galleryItems.length
+        cur === null ? cur : (cur + dir + items.length) % items.length
       ),
-    []
+    [items.length]
   );
 
   useEffect(() => {
@@ -57,12 +73,12 @@ export default function Gallery() {
     };
   }, [active, close, step]);
 
-  const current = active === null ? null : galleryItems[active];
+  const current = active === null ? null : items[active];
 
   return (
     <>
       <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
-        {galleryItems.map((item, i) => (
+        {items.map((item, i) => (
           <motion.button
             key={item.id}
             type="button"
