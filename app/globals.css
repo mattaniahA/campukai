@@ -231,6 +231,15 @@ body {
   );
 }
 
+/* On mobile the ghost script sits in the corners rather than centered, so
+   the horizontal edge-fade mask (tuned for a centered block) is dropped. */
+@media (max-width: 639px) {
+  .script-ghost {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
 /* Filled script for small flourishes */
 .script {
   font-family: var(--font-pinyon), cursive;
