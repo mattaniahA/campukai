@@ -64,7 +64,7 @@ export default function TicketsPage() {
                           rel="noopener noreferrer"
                           className="border-b border-ink/40 pb-0.5 text-ink transition-colors hover:border-petal-deep hover:text-petal-deep"
                         >
-                          {tier.link.label} →
+                          {tier.link.label} 
                         </a>
                       </p>
                     )}
@@ -94,7 +94,7 @@ export default function TicketsPage() {
               className="group flex flex-col gap-4 border-y rule py-10 sm:flex-row sm:items-center sm:justify-between"
             >
               <span className="display text-4xl lowercase leading-[0.95] tracking-tight text-ink transition-colors group-hover:text-petal-deep sm:text-6xl">
-                register &amp; rsvp here
+                register for camp here
               </span>
               <span
                 aria-hidden
@@ -125,6 +125,7 @@ export default function TicketsPage() {
                 Fill out RSVP form
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
+              
               <a
                 href={`mailto:${site.contact.email}`}
                 className="border-b border-ink/40 pb-0.5 text-sm uppercase tracking-[0.18em] text-ink transition-colors hover:border-ink"

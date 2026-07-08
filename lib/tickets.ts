@@ -32,7 +32,7 @@ export const tickets = {
       body: "Work-trade option for assigned volunteers only.",
       link: {
         label: "Sign up to volunteer here",
-        href: "https://docs.google.com/forms/d/e/1FAIpQLSdBFg9AIUo_zPWNKdbWZQz3M-GvWi4rX5y6LO3VC1SdW8xnJw/viewform",
+        href: "https://docs.google.com/forms/d/e/1FAIpQLSfjShxkCCIb5RVyaPF2_LKwedD59HMvnrHcAKz00t70vOjTnQ/viewform?usp=sharing&ouid=100976631237999044087",
       },
     },
   ],
