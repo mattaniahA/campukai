@@ -109,6 +109,31 @@ export default function TicketsPage() {
         </section>
 
 
+        {/* Register */}
+        <section className="mx-auto max-w-4xl px-5 py-14 sm:px-8">
+          <Reveal>
+            <a
+              href={tickets.googleFormUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col gap-4 border-y rule py-10 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <span className="display text-4xl lowercase leading-[0.95] tracking-tight text-ink transition-colors group-hover:text-petal-deep sm:text-6xl">
+                register for camp here
+              </span>
+              <span
+                aria-hidden
+                className="display text-4xl text-ink transition-all group-hover:translate-x-2 group-hover:text-petal-deep sm:text-6xl"
+              >
+                →
+              </span>
+            </a>
+            <p className="label mt-4">
+              Payment details, the liability waiver, and everything else you need are in the form.
+            </p>
+          </Reveal>
+        </section>
+
         {/* Closing */}
         <section className="mx-auto max-w-4xl px-5 py-20 sm:px-8">
           <Reveal>
@@ -125,6 +150,7 @@ export default function TicketsPage() {
                 Fill out RSVP form
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
+              
               <a
                 href={`mailto:${site.contact.email}`}
                 className="border-b border-ink/40 pb-0.5 text-sm uppercase tracking-[0.18em] text-ink transition-colors hover:border-ink"
