@@ -231,6 +231,13 @@ body {
   );
 }
 
+/* Oversized poster variant — words crop hard at the viewport edge
+   instead of dissolving, so they read as staggered paper panels. */
+.script-ghost--bleed {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
 /* Filled script for small flourishes */
 .script {
   font-family: var(--font-pinyon), cursive;

@@ -22,7 +22,7 @@ const pinyon = Pinyon_Script({
 });
 
 export const metadata: Metadata = {
-  title: `${site.name} — ${site.location}`,
+  title: site.name,
   description: site.tagline,
   openGraph: {
     title: `${site.name} — ${site.dates}`,
