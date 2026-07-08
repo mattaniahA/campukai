@@ -12,16 +12,8 @@ export default function Footer() {
               camp u-kai
             </div>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-soft">
-              {site.dates} · {site.location}. A camp and festival in the hills of
-              Mendocino County.
+              {site.dates} · {site.location}. A DIY adult summer camp and festival in Mendocino County.
             </p>
-            <ScatterPlate
-              seed={88}
-              tone="olive"
-              count={200}
-              label="U-KAI / fig.00"
-              className="mt-6 h-20 w-28"
-            />
           </div>
 
           <div>
@@ -55,7 +47,6 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-ink-soft">
               <li>{site.dates}</li>
               <li>{site.location}</li>
-              <li>{site.format}</li>
               <li>
                 <a href={`mailto:${site.contact.email}`} className="hover:text-ink">
                   {site.contact.email}
@@ -68,7 +59,7 @@ export default function Footer() {
                   rel="noreferrer"
                   className="hover:text-ink"
                 >
-                  {site.contact.instagram}
+                  IG: {site.contact.instagram}
                 </a>
               </li>
             </ul>

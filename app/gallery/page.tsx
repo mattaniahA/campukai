@@ -27,8 +27,7 @@ export default function GalleryPage() {
               gallery
             </h1>
             <p className="mt-5 max-w-lg text-sm leading-relaxed text-ink-soft sm:text-base">
-              Moments from camp — swimming holes, late sets, and everyone we love
-              in one place. Select a plate to view it larger.
+              Memories from camp 2025 ❤︎⁠
             </p>
           </Reveal>
         </section>

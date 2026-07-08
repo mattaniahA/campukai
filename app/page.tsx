@@ -115,12 +115,8 @@ export default function Home() {
               03 / Tickets
             </span>
             <h2 className="display mt-4 max-w-3xl text-4xl lowercase leading-[0.95] tracking-tight text-ink sm:text-6xl">
-              Come to camp. Bring a tent, a friend, and something to share.
+              Come to camp! <br/>Bring a tent, a friend, and something to share.
             </h2>
-            <p className="mt-6 max-w-md text-sm text-ink-soft sm:text-base">
-              {site.dates} · {site.location}. Tickets are limited and tend to go
-              fast — grab yours and we&apos;ll send the details.
-            </p>
             <a
               href={site.ticketUrl}
               className="group mt-9 inline-flex items-center gap-2 bg-ink px-7 py-3.5 text-sm uppercase tracking-[0.18em] text-paper transition-colors hover:bg-olive-deep"

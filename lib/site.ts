@@ -7,7 +7,7 @@ export const site = {
   tagline:
     "A DIY weekend gathering in the mountains of Ukiah, California — founded by QTBIPOC nature lovers, artists, musicians, skaters, and makers.",
   dates: "August 13–16, 2026",
-  location: "Lake Mendocino · Ukiah, CA",
+  location: "Ukiah, CA",
   format: "Four days, camping",
   // Ticket details live on the /tickets page.
   ticketUrl: "/tickets",
