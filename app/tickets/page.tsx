@@ -73,49 +73,28 @@ export default function TicketsPage() {
         </section>
 
 
-        {/* RSVP & confirm */}
+        {/* Register */}
         <section className="mx-auto max-w-4xl px-5 py-14 sm:px-8">
           <Reveal>
-            <SectionHead index="03 / RSVP" title="Reserve & confirm" />
-          </Reveal>
-
-          <Reveal delay={0.08}>
-            <div className="mt-8 grid gap-px border rule bg-paper-soft sm:grid-cols-3">
-              {[
-                ["RSVP Form", "Fill out & submit", tickets.googleFormUrl],
-                ["Venmo", tickets.payment.venmo, undefined],
-                ["CashApp", tickets.payment.cashapp, undefined],
-              ].map(([k, v, href]) => (
-                <div key={k} className="border-t rule px-5 py-5 first:border-t-0 sm:border-l sm:border-t-0 sm:first:border-l-0">
-                  <div className="label mb-2">{k}</div>
-                  {href ? (
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="display text-lg font-medium text-ink hover:text-petal-deep"
-                    >
-                      {v}
-                    </a>
-                  ) : (
-                    <span className="display text-lg font-medium text-ink">{v}</span>
-                  )}
-                </div>
-              ))}
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.12}>
-            <ol className="mt-8 divide-y divide-ink/10 border-y rule">
-              {tickets.rsvpSteps.map((step, i) => (
-                <li key={i} className="flex gap-5 py-4">
-                  <span className="label pt-0.5 tabular-nums">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-sm leading-relaxed text-ink sm:text-base">{step}</span>
-                </li>
-              ))}
-            </ol>
+            <a
+              href={tickets.googleFormUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col gap-4 border-y rule py-10 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <span className="display text-4xl lowercase leading-[0.95] tracking-tight text-ink transition-colors group-hover:text-petal-deep sm:text-6xl">
+                register &amp; rsvp here
+              </span>
+              <span
+                aria-hidden
+                className="display text-4xl text-ink transition-all group-hover:translate-x-2 group-hover:text-petal-deep sm:text-6xl"
+              >
+                →
+              </span>
+            </a>
+            <p className="label mt-4">
+              Payment details, the liability waiver, and everything else you need are in the form.
+            </p>
           </Reveal>
         </section>
 
