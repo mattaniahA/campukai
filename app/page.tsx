@@ -57,6 +57,71 @@ export default function Home() {
           </Reveal>
         </section>
 
+        {/* Nights */}
+        <section id="nights" className="py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8">
+            <Reveal>
+              <SectionHead index="02 / Nights" title="after dark" />
+            </Reveal>
+            <Reveal delay={0.08}>
+              <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ink-soft sm:text-base">
+                Two nights of camp spill into town. Both are open to everyone —
+                campers and locals alike — at donation-based door prices.
+              </p>
+            </Reveal>
+
+            <div className="mt-12 grid gap-10 sm:grid-cols-2 sm:gap-8">
+              {site.nights.map((night, i) => (
+                <Reveal key={night.id} delay={i * 0.1}>
+                  <article className="flex h-full flex-col border rule bg-bone/60">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={night.flyer}
+                      alt={`${night.title} flyer — ${night.lineup.join(", ")}`}
+                      className="w-full border-b rule object-cover"
+                      loading="lazy"
+                    />
+                    <div className="flex flex-1 flex-col gap-4 p-5 sm:p-6">
+                      <div>
+                        <h3 className="display text-2xl lowercase tracking-tight text-ink sm:text-3xl">
+                          {night.title}
+                        </h3>
+                        <div className="label mt-2">
+                          {night.day} · {night.time}
+                        </div>
+                      </div>
+
+                      <ul className="flex flex-wrap gap-x-3 gap-y-1 text-sm text-ink">
+                        {night.lineup.map((act) => (
+                          <li key={act} className="lowercase">
+                            {act}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <dl className="mt-auto grid gap-3 border-t rule pt-4 text-sm">
+                        <div>
+                          <dt className="label mb-1">Where</dt>
+                          <dd className="text-ink">
+                            {night.venue}
+                            <span className="block text-ink-soft">
+                              {night.address}
+                            </span>
+                          </dd>
+                        </div>
+                        <div>
+                          <dt className="label mb-1">Door</dt>
+                          <dd className="text-ink">{night.price}</dd>
+                        </div>
+                      </dl>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Gallery teaser */}
         <section className="panel border-y rule py-20 sm:py-28">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
@@ -65,7 +130,7 @@ export default function Home() {
                 <div className="flex items-baseline gap-4">
                   <span className="label pt-1">
                     <span aria-hidden className="mr-2 text-ink">✦</span>
-                    02 / Archive
+                    03 / Archive
                   </span>
                   <h2 className="display text-3xl lowercase tracking-tight text-ink sm:text-5xl">
                     From last year
@@ -112,7 +177,7 @@ export default function Home() {
           <Reveal>
             <span className="label">
               <span aria-hidden className="mr-2 text-ink">✦</span>
-              03 / Tickets
+              04 / Tickets
             </span>
             <h2 className="display mt-4 max-w-3xl text-4xl lowercase leading-[0.95] tracking-tight text-ink sm:text-6xl">
               Come to camp! <br/>Bring a tent, a friend, and something to share.
